@@ -1,18 +1,112 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Pinewood Space Shuttle Advantage GUI", "Ocean")
 
-# Other files and folders
-.settings/
+--MAIN
+local Main = Window:NewTab("Main")
+local MainSection = Main:NewSection("teleportations")
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+MainSection:NewButton("To International Ship", "Teleport you to International Ship spawn", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-36.4223175, 100069.547, 381.345154, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+end)
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+MainSection:NewButton("To Mars", "Teleport you to Mars planet spawn", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-351.65152, 116258.039, -1278.34009, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+end)
+
+MainSection:NewButton("To Stinky", "Teleport you to Stinky planet spawn", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-330.565308, 135578.516, 3184.60132, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+end)
+
+MainSection:NewButton("To Alien", "Teleport you to Alien planet spawn and saves you 411 robux", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-445.686615, 151240.656, -1313.05725, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+end)
+
+MainSection:NewButton("To Pluto", "Teleport you to Pluto planet spawn", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-414.21048, 202096.906, -1242.46899, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+end)
+
+MainSection:NewButton("To Mission Room", "Teleport you to Mission control Room spawn", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(430.134949, 9.69999504, -43.4564857, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+end)
+
+MainSection:NewButton("To Engineer", "Teleport you to Engineer team spawn", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(469.888702, 6.6999979, -197.067856, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+end)
+
+MainSection:NewButton("To truck Spawn", "Teleport you to truck  spawn", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(209.614594, 6.49999809, 154.18335, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+end)
+
+MainSection:NewButton("To rocket launch pad", "Teleport you to rocket launch pad", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(70.6905899, 157.499954, 95.0999908, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+end)
+
+MainSection:NewButton("To Shelter in the mountain", "Teleport you to Shelter in the mountain", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-171.430588, 104.952568, 313.659149, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+end)
+
+
+--LOCAL PLAYER
+local Player = Window:NewTab("Player")
+local PlayerSection = Player:NewSection("Player")
+
+PlayerSection:NewSlider("Walkspeed", "It changes your speed", 500, 16, function(s)
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+
+PlayerSection:NewSlider("Jumppower", "Changes the jump power", 350, 50, function(s)
+ game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+PlayerSection:NewButton("Reset Walkspeed/Jumppower", "Resets to all defaults", function()
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+end)
+
+PlayerSection:NewButton("Rejoin", "Rejoin you in the Same server", function()
+   loadstring(game:HttpGet("https://pastebin.com/raw/1gtVMUz3"))()
+
+end)
+
+PlayerSection:NewButton("Bypassed Fly Click (X) to turn it on or off", "bird mode", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Nicuse/RobloxScripts/main/BypassedFly.lua"))() 
+
+        Fly(true)
+    end)
+
+
+ --Other
+    local Extra = Window:NewTab("Extra")
+    local ExtraSection = Extra:NewSection("Extra")
+    
+    ExtraSection:NewButton("Infinite Yield", "FE Admin Commands", function()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+    end)
+
+ ExtraSection:NewButton("Chat Spoofer", "Lets you chat for other people", function()
+        loadstring(game:HttpGet(('https://pastebin.com/raw/djBfk8Li'),true))()
+ end)
+ 
+  ExtraSection:NewButton("Op Admin", "Give you Op admin ", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/fatesc/fates-admin/main/main.lua"))();
+
+    end)
+
+--Binds
+
+local Binds = Window:NewTab("Binds")
+local BindsSection = Binds:NewSection("Close/open GUI")
+BindsSection:NewKeybind("Toggle UI", " Chose Any key to Open and close GUI", Enum.KeyCode.F, function()
+	Library:ToggleUI()
+end)
+
+local credit = Window:NewTab("#credit")
+local creditSection = credit:NewSection("Script Owner")
+creditSection:NewButton("Ahmedandalf", "Script Owner Roblox Profile", function()
+    print("Clicked")
+end)
+local creditSection = credit:NewSection("Discord Tags")
+creditSection:NewButton("ahmedandalf#8295", "Script Owner Discord Tags", function()
+    print("Clicked")
+    end)
