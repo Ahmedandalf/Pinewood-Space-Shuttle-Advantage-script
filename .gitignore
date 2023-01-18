@@ -1,5 +1,5 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Sega HUB-Pinewood Space Shuttle Advantage GUI", "Ocean")
+local Window = Library.CreateLib("Sega GUI-Pinewood Space Shuttle Advantage GUI", "Ocean")
 
 --MAIN
 local Main = Window:NewTab("Main")
